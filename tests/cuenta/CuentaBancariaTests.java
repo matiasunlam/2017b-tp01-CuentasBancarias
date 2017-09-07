@@ -20,10 +20,19 @@ public class CuentaBancariaTests {
 	}
 	
 	@Test
-	public void queDepositaCorrectamente() {
+	public void primerDeposito() {
 		int primerDeposito = 100;
 		cuenta1.depositarDinero(primerDeposito);
 		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo());
+	}
+	
+	@Test
+	public void queAcumulaDepositos() {
+		int primerDeposito = 100;
+		cuenta1.depositarDinero(primerDeposito);
+		int nuevoDeposito = 500;
+		cuenta1.depositarDinero(nuevoDeposito);
+		Assert.assertEquals(primerDeposito+nuevoDeposito, cuenta1.mostrarSaldo());
 	}
 	
 }
