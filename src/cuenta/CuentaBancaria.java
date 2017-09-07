@@ -24,10 +24,9 @@ public class CuentaBancaria {
 		this.saldo -= montoParaExtraer;
 	}
 
-	public void transferirHacia(int transferenciaParaCuenta2, CuentaBancaria cuenta2) throws Exception {
-		
-		this.extraerDinero(transferenciaParaCuenta2);
-		cuenta2.depositarDinero(transferenciaParaCuenta2);
+	public void transferirHacia(int montoParaTransferir, CuentaBancaria cuentaDestino) throws Exception {
+		this.extraerDinero(montoParaTransferir);
+		cuentaDestino.depositarDinero(montoParaTransferir);
 	}
 
 }
