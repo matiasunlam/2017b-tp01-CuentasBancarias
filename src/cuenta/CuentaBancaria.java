@@ -26,6 +26,7 @@ public class CuentaBancaria {
 
 	public void transferirHacia(int transferenciaParaCuenta2, CuentaBancaria cuenta2) throws Exception {
 		
+		this.extraerDinero(transferenciaParaCuenta2);
 		cuenta2.depositarDinero(transferenciaParaCuenta2);
 	}
 
