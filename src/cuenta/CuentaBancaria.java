@@ -9,6 +9,10 @@ public class CuentaBancaria {
 	}
 
 	public void depositarDinero(int saldoDepositado) {
+		
+		if (saldoDepositado < 0)
+			return;
+		
 		this.saldo += saldoDepositado;
 	}
 
