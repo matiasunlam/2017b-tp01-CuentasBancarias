@@ -20,14 +20,14 @@ public class CuentaBancariaTests {
 	}
 	
 	@Test
-	public void primerDeposito() {
+	public void primerDeposito() throws Exception {
 		int primerDeposito = 100;
 		cuenta1.depositarDinero(primerDeposito);
 		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo());
 	}
 	
 	@Test
-	public void queAcumulaDepositos() {
+	public void queAcumulaDepositos() throws Exception {
 		int primerDeposito = 100;
 		cuenta1.depositarDinero(primerDeposito);
 		int nuevoDeposito = 500;
@@ -36,13 +36,17 @@ public class CuentaBancariaTests {
 	}
 	
 	@Test
-	public void siRecibeDepositoNegativo() {
-		// El método depositarDinero no debería aceptar valores negativos.
+	public void siRecibeDepositoNegativo() throws Exception {
+		// El método depositarDinero no debería aceptar montos negativos.
 		int primerDeposito = 500;
 		int depositoNegativo = -100;
 		cuenta1.depositarDinero(primerDeposito);
-		cuenta1.depositarDinero(depositoNegativo);
+		try {
+			cuenta1.depositarDinero(depositoNegativo);
+		} catch (Exception exceptionEsperada) {}
 		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo());
 	}
+	
+	
 	
 }
