@@ -8,7 +8,7 @@ public class CuentaBancariaTests {
 
 	CuentaBancaria cuenta1;
 	CuentaBancaria cuenta2;
-	
+
 	@Before
 	public void setUp() {
 		cuenta1 = new CuentaBancaria();
@@ -76,19 +76,19 @@ public class CuentaBancariaTests {
 		double depositoParaCuenta1 = 500;
 		double transferenciaParaCuenta2 = 200;
 		cuenta1.depositarDinero(depositoParaCuenta1);
-		cuenta1.transferirHacia(transferenciaParaCuenta2,cuenta2);
-		Assert.assertEquals(depositoParaCuenta1-transferenciaParaCuenta2, cuenta1.mostrarSaldo(), 0.0f);
+		cuenta1.transferirMontoHacia(transferenciaParaCuenta2, cuenta2);
+		Assert.assertEquals(depositoParaCuenta1 - transferenciaParaCuenta2, cuenta1.mostrarSaldo(), 0.0f);
 		Assert.assertEquals(transferenciaParaCuenta2, cuenta2.mostrarSaldo(), 0.0f);
 	}
-	
+
 	@Test
 	public void transferirConCentavos() throws Exception {
-	double depositoParaCuenta1 = 500.40;
-	double transferenciaParaCuenta2 = 0.40;
-	cuenta1.depositarDinero(depositoParaCuenta1);
-	cuenta1.transferirHacia(transferenciaParaCuenta2,cuenta2);
-	Assert.assertEquals(depositoParaCuenta1-transferenciaParaCuenta2, cuenta1.mostrarSaldo(), 0.0f);
-	Assert.assertEquals(transferenciaParaCuenta2, cuenta2.mostrarSaldo(), 0.0f);
-	Assert.assertNotEquals(0, cuenta2.mostrarSaldo(), 0.0f);
+		double depositoParaCuenta1 = 500.40;
+		double transferenciaParaCuenta2 = 0.40;
+		cuenta1.depositarDinero(depositoParaCuenta1);
+		cuenta1.transferirMontoHacia(transferenciaParaCuenta2, cuenta2);
+		Assert.assertEquals(depositoParaCuenta1 - transferenciaParaCuenta2, cuenta1.mostrarSaldo(), 0.0f);
+		Assert.assertEquals(transferenciaParaCuenta2, cuenta2.mostrarSaldo(), 0.0f);
+		Assert.assertNotEquals(0, cuenta2.mostrarSaldo(), 0.0f);
 	}
 }
