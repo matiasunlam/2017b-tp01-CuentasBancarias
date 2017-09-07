@@ -2,10 +2,10 @@ package cuenta;
 
 public class CuentaBancaria {
 	
-	private int n;
+	private int saldo;
 	
 	public int mostrarSaldo() {
-		return this.n;
+		return this.saldo;
 	}
 
 }
