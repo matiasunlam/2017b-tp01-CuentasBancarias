@@ -35,4 +35,14 @@ public class CuentaBancariaTests {
 		Assert.assertEquals(primerDeposito+nuevoDeposito, cuenta1.mostrarSaldo());
 	}
 	
+	@Test
+	public void siRecibeDepositoNegativo() {
+		// El método depositarDinero no debería aceptar valores negativos.
+		int primerDeposito = 500;
+		int depositoNegativo = -100;
+		cuenta1.depositarDinero(primerDeposito);
+		cuenta1.depositarDinero(depositoNegativo);
+		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo());
+	}
+	
 }
