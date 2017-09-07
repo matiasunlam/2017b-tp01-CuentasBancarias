@@ -19,7 +19,7 @@ public class CuentaBancaria {
 	public void extraerDinero(int montoParaExtraer) throws Exception {
 		
 		if (montoParaExtraer > this.saldo)
-			throw new Exception("No se pueden depositar montos negativos.");
+			throw new Exception("No se pueden extraer montos mayores al saldo.");
 		
 		this.saldo -= montoParaExtraer;
 	}
