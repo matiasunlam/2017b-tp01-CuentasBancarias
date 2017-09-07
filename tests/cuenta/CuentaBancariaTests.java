@@ -8,7 +8,7 @@ public class CuentaBancariaTests {
 
 	CuentaBancaria cuenta1;
 	CuentaBancaria cuenta2;
-
+	
 	@Before
 	public void setUp() {
 		cuenta1 = new CuentaBancaria();
@@ -17,78 +17,78 @@ public class CuentaBancariaTests {
 
 	@Test
 	public void queSaldoIniciaEnCero() {
-		Assert.assertEquals(0, cuenta1.mostrarSaldo());
+		Assert.assertEquals(0, cuenta1.mostrarSaldo(), 0.0f);
 	}
 
 	@Test
 	public void primerDeposito() throws Exception {
-		int primerDeposito = 100;
+		double primerDeposito = 100;
 		cuenta1.depositarDinero(primerDeposito);
-		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo());
+		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo(), 0.0f);
 	}
 
 	@Test
 	public void queAcumulaDepositos() throws Exception {
-		int primerDeposito = 100;
+		double primerDeposito = 100;
 		cuenta1.depositarDinero(primerDeposito);
-		int nuevoDeposito = 500;
+		double nuevoDeposito = 500;
 		cuenta1.depositarDinero(nuevoDeposito);
-		Assert.assertEquals(primerDeposito + nuevoDeposito, cuenta1.mostrarSaldo());
+		Assert.assertEquals(primerDeposito + nuevoDeposito, cuenta1.mostrarSaldo(), 0.0f);
 	}
 
 	@Test
 	public void siRecibeDepositoNegativo() throws Exception {
 		// El método depositarDinero no debería aceptar montos negativos.
-		int primerDeposito = 500;
-		int depositoNegativo = -100;
+		double primerDeposito = 500;
+		double depositoNegativo = -100;
 		cuenta1.depositarDinero(primerDeposito);
 		try {
 			cuenta1.depositarDinero(depositoNegativo);
 		} catch (Exception exceptionEsperada) {
 		}
-		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo());
+		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo(), 0.0f);
 	}
 
 	@Test
 	public void primeraExtraccion() throws Exception {
-		int primerDeposito = 500;
+		double primerDeposito = 500;
 		cuenta1.depositarDinero(primerDeposito);
-		int primeraExtraccion = 400;
+		double primeraExtraccion = 400;
 		cuenta1.extraerDinero(primeraExtraccion);
-		Assert.assertEquals(primerDeposito - primeraExtraccion, cuenta1.mostrarSaldo());
+		Assert.assertEquals(primerDeposito - primeraExtraccion, cuenta1.mostrarSaldo(), 0.0f);
 	}
 
 	@Test
 	public void siExtraccionSuperaSaldo() throws Exception {
 		// El método extraerDinero no debería permitir que se extraiga más dinero que el disponible.
-		int primerDeposito = 500;
+		double primerDeposito = 500;
 		cuenta1.depositarDinero(primerDeposito);
-		int primeraExtraccion = 600;
+		double primeraExtraccion = 600;
 		try {
 			cuenta1.extraerDinero(primeraExtraccion);
 		} catch (Exception exceptionEsperada) {
 		}
-		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo());
+		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo(), 0.0f);
 	}
 
 	@Test
 	public void transferirEntreCuentas() throws Exception {
-		int depositoParaCuenta1 = 500;
-		int transferenciaParaCuenta2 = 200;
+		double depositoParaCuenta1 = 500;
+		double transferenciaParaCuenta2 = 200;
 		cuenta1.depositarDinero(depositoParaCuenta1);
 		cuenta1.transferirHacia(transferenciaParaCuenta2,cuenta2);
-		Assert.assertEquals(depositoParaCuenta1-transferenciaParaCuenta2, cuenta1.mostrarSaldo());
-		Assert.assertEquals(transferenciaParaCuenta2, cuenta2.mostrarSaldo());
+		Assert.assertEquals(depositoParaCuenta1-transferenciaParaCuenta2, cuenta1.mostrarSaldo(), 0.0f);
+		Assert.assertEquals(transferenciaParaCuenta2, cuenta2.mostrarSaldo(), 0.0f);
 	}
 	
 	@Test
 	public void transferirConCentavos() throws Exception {
-	int depositoParaCuenta1 = (int) 500.40;
-	int transferenciaParaCuenta2 = (int) 0.40;
+	double depositoParaCuenta1 = 500.40;
+	double transferenciaParaCuenta2 = 0.40;
 	cuenta1.depositarDinero(depositoParaCuenta1);
 	cuenta1.transferirHacia(transferenciaParaCuenta2,cuenta2);
-	Assert.assertEquals(depositoParaCuenta1-transferenciaParaCuenta2, cuenta1.mostrarSaldo());
-	Assert.assertEquals(transferenciaParaCuenta2, cuenta2.mostrarSaldo());
-	Assert.assertNotEquals(0, cuenta2.mostrarSaldo());
+	Assert.assertEquals(depositoParaCuenta1-transferenciaParaCuenta2, cuenta1.mostrarSaldo(), 0.0f);
+	Assert.assertEquals(transferenciaParaCuenta2, cuenta2.mostrarSaldo(), 0.0f);
+	Assert.assertNotEquals(0, cuenta2.mostrarSaldo(), 0.0f);
 	}
 }

@@ -2,13 +2,13 @@ package cuenta;
 
 public class CuentaBancaria {
 
-	private int saldo;
+	private double saldo;
 
-	public int mostrarSaldo() {
+	public double mostrarSaldo() {
 		return this.saldo;
 	}
 
-	public void depositarDinero(int montoParaDepositar) throws Exception {
+	public void depositarDinero(double montoParaDepositar) throws Exception {
 
 		if (montoParaDepositar < 0)
 			throw new Exception("No se pueden depositar montos negativos.");
@@ -16,7 +16,7 @@ public class CuentaBancaria {
 		this.saldo += montoParaDepositar;
 	}
 
-	public void extraerDinero(int montoParaExtraer) throws Exception {
+	public void extraerDinero(double montoParaExtraer) throws Exception {
 
 		if (montoParaExtraer > this.saldo)
 			throw new Exception("No se pueden extraer montos mayores al saldo.");
@@ -24,7 +24,7 @@ public class CuentaBancaria {
 		this.saldo -= montoParaExtraer;
 	}
 
-	public void transferirHacia(int montoParaTransferir, CuentaBancaria cuentaDestino) throws Exception {
+	public void transferirHacia(double montoParaTransferir, CuentaBancaria cuentaDestino) throws Exception {
 		this.extraerDinero(montoParaTransferir);
 		cuentaDestino.depositarDinero(montoParaTransferir);
 	}
