@@ -54,7 +54,16 @@ public class CuentaBancariaTests {
 		int primeraExtraccion = 400;
 		cuenta1.extraerDinero(primeraExtraccion);
 		Assert.assertEquals(primerDeposito-primeraExtraccion, cuenta1.mostrarSaldo());
-
+	}
+	
+	@Test
+	public void siExtraccionSuperaSaldo() throws Exception {
+		// El método extraerDinero no debería permitir que se extraiga más dinero que el disponible.
+		int primerDeposito = 500;
+		cuenta1.depositarDinero(primerDeposito);
+		int primeraExtraccion = 600;
+		cuenta1.extraerDinero(primeraExtraccion);
+		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo());
 	}
 	
 }
