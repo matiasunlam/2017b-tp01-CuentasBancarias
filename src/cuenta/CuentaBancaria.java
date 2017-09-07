@@ -8,20 +8,20 @@ public class CuentaBancaria {
 		return this.saldo;
 	}
 
-	public void depositarDinero(int saldoDepositado) throws Exception {
+	public void depositarDinero(int montoParaDepositar) throws Exception {
 
-		if (saldoDepositado < 0)
+		if (montoParaDepositar < 0)
 			throw new Exception("No se pueden depositar montos negativos.");
 
-		this.saldo += saldoDepositado;
+		this.saldo += montoParaDepositar;
 	}
 
-	public void extraerDinero(int n) {
+	public void extraerDinero(int montoParaExtraer) {
 		
-		if (n > this.saldo)
+		if (montoParaExtraer > this.saldo)
 			return;
 		
-		this.saldo -= n;
+		this.saldo -= montoParaExtraer;
 	}
 
 }
