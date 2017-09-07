@@ -7,5 +7,5 @@
 
 ## Estudiantes
 
-* XXX ([xxx](https://github.com/xxx))
-* XXX ([xxx](https://github.com/xxx))
+* Matías Orsi ([matiasunlam](https://github.com/matiasunlam))
+* Gabriel Quinteros ([GabrielQuinteros](https://github.com/GabrielQuinteros))
