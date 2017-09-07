@@ -16,8 +16,12 @@ public class CuentaBancaria {
 		this.saldo += saldoDepositado;
 	}
 
-	public void extraerDinero(int primeraExtraccion) {
-		this.saldo -= primeraExtraccion;
+	public void extraerDinero(int n) {
+		
+		if (n > this.saldo)
+			return;
+		
+		this.saldo -= n;
 	}
 
 }
