@@ -47,6 +47,14 @@ public class CuentaBancariaTests {
 		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo());
 	}
 	
-	
+	@Test
+	public void primeraExtraccion() throws Exception {
+		int primerDeposito = 500;
+		cuenta1.depositarDinero(primerDeposito);
+		int primeraExtraccion = 400;
+		cuenta1.extraerDinero(primeraExtraccion);
+		Assert.assertEquals(primerDeposito-primeraExtraccion, cuenta1.mostrarSaldo());
+
+	}
 	
 }
