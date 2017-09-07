@@ -8,4 +8,8 @@ public class CuentaBancaria {
 		return this.saldo;
 	}
 
+	public void depositarDinero(int primerDeposito) {
+		this.saldo = 0;
+	}
+
 }

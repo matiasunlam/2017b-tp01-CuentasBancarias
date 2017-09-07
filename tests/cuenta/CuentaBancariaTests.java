@@ -19,4 +19,11 @@ public class CuentaBancariaTests {
 		Assert.assertEquals(0, cuenta1.mostrarSaldo());
 	}
 	
+	@Test
+	public void queDepositaCorrectamente() {
+		int primerDeposito = 100;
+		cuenta1.depositarDinero(primerDeposito);
+		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo());
+	}
+	
 }
