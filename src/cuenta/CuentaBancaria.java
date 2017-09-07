@@ -17,7 +17,7 @@ public class CuentaBancaria {
 	}
 
 	public void extraerDinero(int primeraExtraccion) {
-		this.saldo = primeraExtraccion;
+		this.saldo -= primeraExtraccion;
 	}
 
 }
