@@ -16,10 +16,10 @@ public class CuentaBancaria {
 		this.saldo += montoParaDepositar;
 	}
 
-	public void extraerDinero(int montoParaExtraer) {
+	public void extraerDinero(int montoParaExtraer) throws Exception {
 		
 		if (montoParaExtraer > this.saldo)
-			return;
+			throw new Exception("No se pueden depositar montos negativos.");
 		
 		this.saldo -= montoParaExtraer;
 	}

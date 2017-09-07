@@ -62,7 +62,9 @@ public class CuentaBancariaTests {
 		int primerDeposito = 500;
 		cuenta1.depositarDinero(primerDeposito);
 		int primeraExtraccion = 600;
-		cuenta1.extraerDinero(primeraExtraccion);
+		try {
+			cuenta1.extraerDinero(primeraExtraccion);
+		} catch (Exception exceptionEsperada) {}
 		Assert.assertEquals(primerDeposito, cuenta1.mostrarSaldo());
 	}
 	
