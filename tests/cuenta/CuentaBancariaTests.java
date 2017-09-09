@@ -91,4 +91,16 @@ public class CuentaBancariaTests {
 		Assert.assertEquals(transferenciaParaCuenta2, cuenta2.mostrarSaldo(), 0.0f);
 		Assert.assertNotEquals(0, cuenta2.mostrarSaldo(), 0.0f);
 	}
+	
+	@Test
+	public void siTransferenciaSuperaDepositos() throws Exception {
+		double depositoParaCuenta1 = 500;
+		double transferenciaParaCuenta2 = 2000;
+		cuenta1.depositarDinero(depositoParaCuenta1);
+		try {
+			cuenta1.transferirMontoHacia(transferenciaParaCuenta2, cuenta2);
+		} catch (Exception exceptionEsperada) {}
+		Assert.assertEquals(depositoParaCuenta1, cuenta1.mostrarSaldo(), 0.0f);
+		Assert.assertEquals(0, cuenta2.mostrarSaldo(), 0.0f);
+	}
 }
